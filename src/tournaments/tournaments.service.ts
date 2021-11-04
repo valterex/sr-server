@@ -1,7 +1,7 @@
 import { HttpService } from '@nestjs/axios';
 import { Injectable } from '@nestjs/common';
 import { map } from 'rxjs';
-import { BASE_URL } from '../constants';
+import { BASE_URL, normalizeTournaments } from '../constants';
 
 @Injectable()
 export class TournamentsService {
@@ -18,6 +18,7 @@ export class TournamentsService {
 
         return [...tournaments, ...uniqueTournaments];
       }),
+      map((response) => normalizeTournaments(response)),
     );
   }
 }

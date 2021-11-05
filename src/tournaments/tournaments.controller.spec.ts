@@ -1,5 +1,6 @@
 import { HttpService } from '@nestjs/axios';
 import { Observable } from 'rxjs';
+import { Tournament } from '../types';
 import { TournamentsController } from './tournaments.controller';
 import { TournamentsService } from './tournaments.service';
 
@@ -14,8 +15,8 @@ describe('TournamentsController', () => {
   });
 
   describe('getTournaments', () => {
-    it('should return an observable of tournaments', () => {
-      let result: Observable<Array<{ id: number; name: string }>>;
+    it('should return an observable array of tournaments', () => {
+      let result: Observable<Array<Tournament>>;
 
       jest
         .spyOn(tournamentsService, 'getTournaments')

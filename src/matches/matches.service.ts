@@ -21,8 +21,11 @@ export class MatchesService {
               result: game.result,
               homeTeam: game.teams.home.mediumname,
               awayTeam: game.teams.away.mediumname,
-              comment: game.comment
-                ? game.comment.replace(/\n/g, ',')
+              events: game.comment
+                ? game.comment
+                    .replace(/\n/g, ',')
+                    .split(', ')
+                    .filter((el) => el !== '')
                 : game.comment,
             };
           }),

@@ -85,5 +85,5 @@ export interface Match {
   result: MatchResult;
   homeTeam: string;
   awayTeam: string;
-  comment: string;
+  events: Array<string>;
 }

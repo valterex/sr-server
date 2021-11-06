@@ -5,8 +5,7 @@ type TournamentNames =
   | 'Bundesliga; Europa Playoffs'
   | 'Bundesliga; Relegation/Promotion'
   | 'Bundesliga; Relegation Round'
-  | 'Bundesliga; Championship Round'
-  | 'Bundesliga';
+  | 'Bundesliga; Championship Round';
 
 type TournamentTypes = 'tournament' | 'uniquetournament';
 

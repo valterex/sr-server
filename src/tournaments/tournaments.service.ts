@@ -14,11 +14,7 @@ export class TournamentsService {
         const tournaments: Array<TournamentResponse> =
           response.data.doc[0].data.tournaments;
 
-        const uniqueTournaments: Array<TournamentResponse> = Object.values(
-          response.data.doc[0].data.uniquetournaments,
-        );
-
-        return [...tournaments, ...uniqueTournaments];
+        return tournaments;
       }),
       map((response) =>
         response.map((game) => {

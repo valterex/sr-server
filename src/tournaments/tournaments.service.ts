@@ -23,7 +23,7 @@ export class TournamentsService {
       map((response) =>
         response.map((game) => {
           return {
-            id: game._id,
+            id: String(game._id),
             name: game.name,
           };
         }),

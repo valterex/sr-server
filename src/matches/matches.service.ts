@@ -16,7 +16,7 @@ export class MatchesService {
         map((response: Array<MatchResponse>) =>
           response.map((game) => {
             return {
-              id: game._id,
+              id: String(game._id),
               time: game.time.uts,
               result: game.result,
               homeTeam: game.teams.home.mediumname,

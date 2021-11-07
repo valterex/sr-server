@@ -13,11 +13,11 @@ interface MatchRoundName {
   name: number;
 }
 
-interface MatchResult {
-  home: number;
-  away: number;
+export interface MatchResult {
+  home: number | null;
+  away: number | null;
   period: 'nt';
-  winner: 'home' | 'away';
+  winner: 'home' | 'away' | null;
 }
 
 interface MatchPeriods {
@@ -81,9 +81,9 @@ export interface MatchResponse {
 
 export interface Match {
   id: string;
-  time: any;
+  time: MatchTime;
   result: MatchResult;
   homeTeam: string;
   awayTeam: string;
-  events: Array<string>;
+  events: string;
 }

@@ -17,22 +17,19 @@ export class MatchesService {
           response.map((game) => {
             return {
               id: String(game._id),
-              time: game.time.uts,
-              result: game.result,
+              time: game.time,
+              result: game.result.home && game.result.away ? game.result : null,
               homeTeam: game.teams.home.mediumname,
               awayTeam: game.teams.away.mediumname,
-              events: game.comment
-                ? game.comment
-                    .replace(/\n/g, ',')
-                    .split(', ')
-                    .filter((el) => el !== '')
-                : game.comment,
+              events: game.comment ? game.comment.replace(/\n/g, ',') : null,
             };
           }),
         ),
         map((response: Array<Match>) =>
           response
-            .sort((a, b) => (a.time < b.time ? 1 : a.time > b.time ? -1 : 0))
+            .sort((a, b) =>
+              a.time.uts < b.time.uts ? 1 : a.time.uts > b.time.uts ? -1 : 0,
+            )
             .slice(0, 5),
         ),
       );

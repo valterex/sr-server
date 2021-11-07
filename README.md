@@ -12,6 +12,8 @@ $ npm run start
 
 # watch mode
 $ npm run start:dev
+
+The app runs on `http://localhost:3001`.
 ```
 
 ## Test
